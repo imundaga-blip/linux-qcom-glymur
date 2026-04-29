@@ -1058,7 +1058,7 @@ static struct clk_rcg2 cam_cc_slow_ahb_clk_src = {
 };
 
 static const struct freq_tbl ftbl_cam_cc_xo_clk_src[] = {
-	F(19200000, P_BI_TCXO_AO, 1, 0, 0),
+	F(19200000, P_BI_TCXO, 1, 0, 0),
 	{ }
 };
 
@@ -2223,7 +2223,7 @@ static struct clk_alpha_pll *cam_cc_glymur_plls[] = {
 	&cam_cc_pll5,
 };
 
-static const u32 cam_cc_glymur_critical_cbcrs[] = {
+static u32 cam_cc_glymur_critical_cbcrs[] = {
 	0x13960, /* CAM_CC_GDSC_CLK */
 	0x1397c, /* CAM_CC_SLEEP_CLK */
 };
@@ -2236,7 +2236,7 @@ static const struct regmap_config cam_cc_glymur_regmap_config = {
 	.fast_io = true,
 };
 
-static const struct qcom_cc_driver_data cam_cc_glymur_driver_data = {
+static struct qcom_cc_driver_data cam_cc_glymur_driver_data = {
 	.alpha_plls = cam_cc_glymur_plls,
 	.num_alpha_plls = ARRAY_SIZE(cam_cc_glymur_plls),
 	.clk_cbcrs = cam_cc_glymur_critical_cbcrs,
